@@ -23,8 +23,19 @@ public class User{
     public String getMail(){
         return email;
     }
-    public void serEmail(string email){
+    public void setEmail(string email){
         this.email = email;
     }
-    public 
+    public String getpassword(){
+        return password;
+    }
+    public void setpassword(string password){
+        this.password = password;
+    }
+      public String role(){
+        return role;
+    }
+    public void role(string role){
+        this.role = role;
+    }
 }
