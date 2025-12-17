@@ -20,4 +20,11 @@ public class User{
     public void setName(String name){
         this.name = name;
     }
+    public String getMail(){
+        return email;
+    }
+    public void serEmail(string email){
+        this.email = email;
+    }
+    public 
 }
