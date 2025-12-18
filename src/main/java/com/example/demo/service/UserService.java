@@ -1,10 +1,8 @@
-package com.example.demo.service;
-import jakarta.persistence.service;
+package com.example.service;
+
 import com.example.demo.model.User;
-@Service
-public interface UserService{
-    public User register(User User);
-    
-    public User findByEmail(String email);
-    public User getAllUser();
+
+public interface UserService {
+    User register(User user);
+    User findByEmail(String email);
 }
