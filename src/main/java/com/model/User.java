@@ -1,5 +1,11 @@
-package com.example.demo.model;
-
+package com.demo.model;
+import jarkarta.persistence.Column;
+import jarkarta.persistence.Entity;
+import jarkarta.persistence.GeneratedValue;
+import jarkarta.persistence.GenerationType;
+import jarkarta.persistence.Id;
+import jarkarta.persistence.Table;
+import jarkarta.persistence.UniqueConstraimt
 public class User{
     private long id;
     private String name;
