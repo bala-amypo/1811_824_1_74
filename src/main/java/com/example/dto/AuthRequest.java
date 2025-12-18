@@ -1,5 +1,4 @@
-package com.example.demo.controller;
+// package com.example.demo.controller;
 
-public class AuthRequest{
-    
-}
+// public class AuthRequest{
+// }    
