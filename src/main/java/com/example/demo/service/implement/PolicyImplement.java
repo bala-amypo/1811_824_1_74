@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Policy;
 import com.example.demo.repository.PolicyRepository;
-import com.example.service.PolicyService;
+import com.example.demo.service.PolicyService;
 
 @Service
 public class PolicyServiceImpl implements PolicyService {
