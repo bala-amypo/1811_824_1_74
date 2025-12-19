@@ -1,9 +1,9 @@
-package com.example.controller;
+package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.entity.FraudCheckResult;
+import com.example.model.FraudCheckResult;
 import com.example.service.FraudDetectionService;
 
 @RestController
