@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.model.Claim;
-import com.example.model.FraudCheckResult;
-import com.example.model.FraudRule;
-import com.example.repository.ClaimRepository;
-import com.example.repository.FraudCheckResultRepository;
-import com.example.repository.FraudRuleRepository;
-import com.example.service.FraudDetectionService;
+import com.example.demo.model.Claim;
+import com.example.demo.model.FraudCheckResult;
+import com.example.demo.model.FraudRule;
+import com.example.demo.repository.ClaimRepository;
+import com.example.demo.repository.FraudCheckResultRepository;
+import com.example.demo.repository.FraudRuleRepository;
+import com.example.demo.service.FraudDetectionService;
 
 @Service
 public class FraudDetectionServiceImpl implements FraudDetectionService {

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.model.Policy;
-import com.example.repository.PolicyRepository;
+import com.example.demo.model.Policy;
+import com.example.demo.repository.PolicyRepository;
 import com.example.service.PolicyService;
 
 @Service
