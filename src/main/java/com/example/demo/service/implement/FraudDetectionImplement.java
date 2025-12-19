@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.entity.Claim;
-import com.example.entity.FraudCheckResult;
-import com.example.entity.FraudRule;
+import com.example.model.Claim;
+import com.example.model.FraudCheckResult;
+import com.example.model.FraudRule;
 import com.example.repository.ClaimRepository;
 import com.example.repository.FraudCheckResultRepository;
 import com.example.repository.FraudRuleRepository;

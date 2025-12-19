@@ -3,7 +3,7 @@ package com.example.demo.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.model.demo.User;
+import com.example.model.User;
 import com.example.repository.UserRepository;
 import com.example.service.UserService;
 

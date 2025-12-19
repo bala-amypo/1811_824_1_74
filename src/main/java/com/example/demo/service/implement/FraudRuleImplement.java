@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.entity.FraudRule;
+import com.example.model.FraudRule;
 import com.example.repository.FraudRuleRepository;
 import com.example.service.FraudRuleService;
 
