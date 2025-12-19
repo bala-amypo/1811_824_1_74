@@ -1,13 +1,13 @@
-package com.example.service.impl;
+package com.example.demo.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.entity.Claim;
-import com.example.repository.ClaimRepository;
-import com.example.service.ClaimService;
+import com.example.demo.entity.Claim;
+import com.example.demo.repository.ClaimRepository;
+import com.example.demo.service.ClaimService;
 
 @Service
 public class ClaimServiceImpl implements ClaimService {
