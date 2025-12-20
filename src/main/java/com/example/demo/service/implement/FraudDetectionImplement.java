@@ -1,6 +1,4 @@
-package com.example.demo.service.impl;
-
-import java.util.List;
+package com.example.demo.service.implement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,21 +27,18 @@ public class FraudDetectionServiceImpl implements FraudDetectionService {
     public FraudCheckResult evaluateClaim(Long claimId) {
 
         Claim claim = claimRepository.findById(claimId).orElse(null);
-        boolean isFraud = false;
+        boolean fraud = false;
 
-        List<FraudRule> rules = fraudRuleRepository.findAll();
-
-        for (FraudRule rule : rules) {
-            
+        for (FraudRule rule : fraudRuleRepository.findAll()) {
             if (claim.getClaimAmount() > rule.getThresholdAmount()) {
-                isFraud = true;
+                fraud = true;
                 break;
             }
         }
 
         FraudCheckResult result = new FraudCheckResult();
         result.setClaim(claim);
-        result.setFraud(isFraud);
+        result.setFraud(fraud);
 
         return resultRepository.save(result);
     }
