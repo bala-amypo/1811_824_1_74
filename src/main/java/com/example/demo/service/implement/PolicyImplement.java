@@ -22,6 +22,6 @@ public class PolicyImplement implements PolicyService {
 
     @Override
     public List<Policy> getPoliciesByUser(Long userId) {
-        return policyRepository.findByUserId(userId)orElse(null);
+        return policyRepository.findByUserId(userId).orElse(null);
     }
 }
