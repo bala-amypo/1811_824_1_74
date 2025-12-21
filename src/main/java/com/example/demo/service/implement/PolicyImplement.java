@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+imoport com.example.demo.model.User;
 import com.example.demo.model.Policy;
 import com.example.demo.repository.PolicyRepository;
 import com.example.demo.service.PolicyService;
@@ -13,8 +13,8 @@ import com.example.demo.service.PolicyService;
 public class PolicyImplement implements PolicyService {
 
     @Autowired
-    private PolicyRepository policyRepository;
-
+    PolicyRepository policyRepository;
+    User obj;
     @Override
     public Policy createPolicy(Policy policy) {
         return policyRepository.save(policy);
@@ -22,6 +22,8 @@ public class PolicyImplement implements PolicyService {
 
     @Override
     public List<Policy> getPoliciesByUser(Long userId) {
+        User use=obj.findById(userId);
+        rule.use;
         return policyRepository.findByUserId(userId).orElse(null);
     }
 }
