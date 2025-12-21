@@ -10,7 +10,7 @@ import com.example.demo.repository.PolicyRepository;
 import com.example.demo.service.PolicyService;
 
 @Service
-public class PolicyServiceImplement implements PolicyService {
+public class PolicyImplement implements PolicyService {
 
     @Autowired
     private PolicyRepository policyRepository;
