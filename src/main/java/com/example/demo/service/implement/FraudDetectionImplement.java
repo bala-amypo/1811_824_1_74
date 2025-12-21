@@ -14,7 +14,7 @@ import com.example.demo.repository.FraudRuleRepository;
 import com.example.demo.service.FraudDetectionService;
 
 @Service
-public class FraudDetectionImplement implements FraudDetectionService {
+public class FraudDetectionServiceImpl implements FraudDetectionService {
 
     @Autowired
     private ClaimRepository claimRepository;
@@ -45,7 +45,6 @@ public class FraudDetectionImplement implements FraudDetectionService {
             }
         }
 
-        // ✅ ONLY VALID METHOD
         result.setFraud(fraud);
 
         return fraudCheckResultRepository.save(result);
