@@ -21,7 +21,7 @@ public class AuthController {
 
 
     @PostMapping("/{email}")
-    public List<User> login(@PathVariable String email) {
+    public User login(@PathVariable String email) {
         return userService.findByEmail(email);
     }
 }

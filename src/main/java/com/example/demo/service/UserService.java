@@ -6,5 +6,5 @@ public interface UserService {
 
     User register(User user);
 
-    List<User> findByEmail(String email);
+    User findByEmail(String email);
 }

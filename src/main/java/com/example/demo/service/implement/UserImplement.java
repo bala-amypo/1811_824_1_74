@@ -19,7 +19,7 @@ public class UserImplement implements UserService {
     }
 
     @Override
-    public List<User> findByEmail(String email){
-        return userRepository.findByEmail(email);
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email).orElse(null);
     }
 }
