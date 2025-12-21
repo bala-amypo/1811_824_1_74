@@ -8,7 +8,7 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserImplement implements UserService {
 
     @Autowired
     private UserRepository userRepository;
