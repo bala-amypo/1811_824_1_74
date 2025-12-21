@@ -23,36 +23,31 @@ public class FraudDetectionImplement implements FraudDetectionService {
     private FraudRuleRepository fraudRuleRepository;
 
     @Autowired
-    private FraudCheckResultRepository resultRepository;
+    private FraudCheckResultRepository fraudCheckResultRepository;
 
     @Override
-    public FraudCheckResult evaluateClaim(Long claimId) {
+    public FraudCheckResult checkFraud(Long claimId) {
 
         Claim claim = claimRepository.findById(claimId)
                 .orElseThrow(() -> new RuntimeException("Claim not found"));
 
         List<FraudRule> rules = fraudRuleRepository.findAll();
 
+        FraudCheckResult result = new FraudCheckResult();
+        result.setClaimId(claimId);
+
         boolean fraud = false;
 
-   
-        if (claim.getClaimAmount() > 10000) {
-            fraud = true;
+        for (FraudRule rule : rules) {
+            if (claim.getAmount() > rule.getThresholdAmount()) {
+                fraud = true;
+                break;
+            }
         }
 
-        FraudCheckResult result = new FraudCheckResult();
-        result.setClaim(claim);
-        result.setFraudulent(fraud);
+        // ✅ ONLY VALID METHOD
+        result.setFraud(fraud);
 
-        return resultRepository.save(result);
-    }
-
-    @Override
-    public FraudCheckResult getResultByClaim(Long claimId) {
-        return resultRepository.findAll()
-                .stream()
-                .filter(r -> r.getClaim().getId().equals(claimId))
-                .findFirst()
-                .orElse(null);
+        return fraudCheckResultRepository.save(result);
     }
 }

@@ -13,8 +13,6 @@ public class FraudCheckResult {
 
     private boolean fraud;
 
-    // ===== Getters & Setters =====
-
     public Long getId() {
         return id;
     }
