@@ -9,21 +9,23 @@ public class FraudCheckResult {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Long claimId;
+
     private boolean fraud;
 
-    @ManyToOne
-    private Claim claim;
+    // ===== Getters & Setters =====
 
-    public FraudCheckResult() {
+    public Long getId() {
+        return id;
     }
 
-    public FraudCheckResult(Claim claim, boolean fraud, Long id) {
-        this.claim = claim;
-        this.fraud = fraud;
-        this.id = id;
+    public Long getClaimId() {
+        return claimId;
     }
 
-    
+    public void setClaimId(Long claimId) {
+        this.claimId = claimId;
+    }
 
     public boolean isFraud() {
         return fraud;
@@ -32,24 +34,4 @@ public class FraudCheckResult {
     public void setFraud(boolean fraud) {
         this.fraud = fraud;
     }
-
-    public Claim getClaim() {
-        return claim;
-    }
-
-    public void setClaim(Claim claim) {
-        this.claim = claim;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    
-
 }
-
