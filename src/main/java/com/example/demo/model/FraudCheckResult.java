@@ -14,6 +14,17 @@ public class FraudCheckResult {
     @ManyToOne
     private Claim claim;
 
+    public FraudCheckResult() {
+    }
+
+    public FraudCheckResult(Claim claim, boolean fraud, Long id) {
+        this.claim = claim;
+        this.fraud = fraud;
+        this.id = id;
+    }
+
+    
+
     public boolean isFraud() {
         return fraud;
     }
@@ -29,5 +40,16 @@ public class FraudCheckResult {
     public void setClaim(Claim claim) {
         this.claim = claim;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    
+
 }
 
