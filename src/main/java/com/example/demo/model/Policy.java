@@ -1,52 +1,39 @@
 package com.example.demo.model;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
 
+import jakarta.persistence.*;
+
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = "policyNumber"))
+@Table(
+    uniqueConstraints = @UniqueConstraint(columnNames = "policyNumber")
+)
 public class Policy {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
+    @Column(nullable = false, unique = true)
     private String policyNumber;
+
+    @Column(nullable = false)
     private String policyType;
+
+    @Column(nullable = false)
     private LocalDate startDate;
+
+    @Column(nullable = false)
     private LocalDate endDate;
 
-    public Policy() {
-    }
+    // 🔑 This field is REQUIRED for findByUserId()
+    @Column(nullable = false)
+    private Long userId;
 
-    public Policy(LocalDate endDate, Long id, String policyNumber, String policyType, LocalDate startDate, User user) {
-        this.endDate = endDate;
-        this.id = id;
-        this.policyNumber = policyNumber;
-        this.policyType = policyType;
-        this.startDate = startDate;
-        this.user = user;
-    }
+    // ===== Getters & Setters =====
 
-    
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public String getPolicyNumber() {
@@ -80,7 +67,12 @@ public class Policy {
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
-    
 
-    
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 }
