@@ -19,7 +19,7 @@ public class AuthController {
         return userService.register(user);
     }
 
-    
+
     @PostMapping("/login")
     public User login(@RequestParam String email) {
         return userService.findByEmail(email);
