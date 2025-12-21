@@ -21,10 +21,7 @@ public class PolicyImplement implements PolicyService {
     }
 
     @Override
-    public List<Policy> getPoliciesByUser(Long userId) {
-        User use=obj.findById(userId);
-            .orElseThrow(()->new RunTimeException("The Id is not found"))
-        rule.;
-        return policyRepository.findByUserId(userId).orElse(null);
-    }
+    // public List<Policy> getPoliciesByUser(Long userId) {
+        
+    // }
 }
