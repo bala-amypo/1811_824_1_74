@@ -1,11 +1,11 @@
-package com.example.demo.service;
+// package com.example.demo.service;
 
-import java.util.List;
-import com.example.demo.model.Policy;
+// import java.util.List;
+// import com.example.demo.model.Policy;
 
-public interface PolicyService {
+// public interface PolicyService {
 
-    Policy createPolicy(Policy policy);
+//     Policy createPolicy(Policy policy);
 
-    List<Policy> getPoliciesByUser(Long userId);
-}
+//     List<Policy> getPoliciesByUser(Long userId);
+// }
