@@ -23,7 +23,8 @@ public class PolicyImplement implements PolicyService {
     @Override
     public List<Policy> getPoliciesByUser(Long userId) {
         User use=obj.findById(userId);
-        rule.use;
+            .orElseThrow(()->new RunTimeException("The Id is not found"))
+        rule.;
         return policyRepository.findByUserId(userId).orElse(null);
     }
 }
