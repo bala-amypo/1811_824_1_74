@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
-
+import java.util.List;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -21,7 +21,7 @@ public class AuthController {
 
 
     @PostMapping("/{email}")
-    public User login(@PathVariable String email) {
+    public List<User> login(@PathVariable String email) {
         return userService.findByEmail(email);
     }
 }
