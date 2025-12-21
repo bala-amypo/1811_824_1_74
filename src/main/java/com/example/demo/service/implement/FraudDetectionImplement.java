@@ -14,7 +14,7 @@ import com.example.demo.repository.FraudRuleRepository;
 import com.example.demo.service.FraudDetectionService;
 
 @Service
-public class FraudDetectionServiceImpl implements FraudDetectionService {
+public class FraudDetectionImplement implements FraudDetectionService {
 
     @Autowired
     private ClaimRepository claimRepository;
