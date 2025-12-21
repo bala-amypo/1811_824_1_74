@@ -20,8 +20,8 @@ public class AuthController {
     }
 
 
-    @PostMapping("/login")
-    public User login(@RequestParam String email) {
+    @PostMapping("/{email}")
+    public User login(@PathVariable String email) {
         return userService.findByEmail(email);
     }
 }
