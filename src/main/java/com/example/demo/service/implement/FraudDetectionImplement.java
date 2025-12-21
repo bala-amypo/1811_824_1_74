@@ -12,39 +12,31 @@ import com.example.demo.repository.FraudRuleRepository;
 import com.example.demo.service.FraudDetectionService;
 
 @Service
-public class FraudDetectionImplement implements FraudDetectionService {
+public class FraudDetectionServiceImpl {
 
     @Autowired
-    private ClaimRepository claimRepository;
-
-    @Autowired
-    private FraudRuleRepository fraudRuleRepository;
+    private FraudRuleRepository ruleRepository;
 
     @Autowired
     private FraudCheckResultRepository resultRepository;
 
-    @Override
-    public FraudCheckResult evaluateClaim(Long claimId) {
+    public FraudCheckResult evaluate(Long claimId, Double claimAmount) {
 
-        Claim claim = claimRepository.findById(claimId).orElse(null);
-        boolean fraud = false;
-
-        for (FraudRule rule : fraudRuleRepository.findAll()) {
-            if (claim.getClaimAmount() > rule.getThresholdAmount()) {
-                fraud = true;
-                break;
-            }
-        }
+        FraudRule rule = ruleRepository.findAll().get(0);
 
         FraudCheckResult result = new FraudCheckResult();
-        result.setClaim(claim);
-        result.setFraud(fraud);
+        result.setClaimId(claimId);
+
+        if (claimAmount > rule.getThresholdAmount()) {
+            result.setFraud(true);
+        } else {
+            result.setFraud(false);
+        }
 
         return resultRepository.save(result);
     }
 
-    @Override
-    public FraudCheckResult getResultByClaim(Long claimId) {
+    public FraudCheckResult getResult(Long claimId) {
         return resultRepository.findByClaimId(claimId);
     }
 }
