@@ -13,13 +13,12 @@ public class FraudDetectionController {
     @Autowired
     private FraudDetectionService fraudDetectionService;
 
-    
+
     @PostMapping("/evaluate/{claimId}")
-    public FraudCheckResult evaluateClaim(@PathVariable Long claimId) {
+    public FraudCheckResult evaluate(@PathVariable Long claimId) {
         return fraudDetectionService.evaluateClaim(claimId);
     }
 
-  
     @GetMapping("/result/claim/{claimId}")
     public FraudCheckResult getResult(@PathVariable Long claimId) {
         return fraudDetectionService.getResultByClaim(claimId);

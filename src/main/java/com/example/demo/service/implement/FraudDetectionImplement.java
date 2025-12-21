@@ -1,5 +1,7 @@
 package com.example.demo.service.implement;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,31 +14,45 @@ import com.example.demo.repository.FraudRuleRepository;
 import com.example.demo.service.FraudDetectionService;
 
 @Service
-public class FraudDetectionImplement {
+public class FraudDetectionServiceImpl implements FraudDetectionService {
 
     @Autowired
-    private FraudRuleRepository ruleRepository;
+    private ClaimRepository claimRepository;
+
+    @Autowired
+    private FraudRuleRepository fraudRuleRepository;
 
     @Autowired
     private FraudCheckResultRepository resultRepository;
 
-    public FraudCheckResult evaluate(Long claimId, Double claimAmount) {
+    @Override
+    public FraudCheckResult evaluateClaim(Long claimId) {
 
-        FraudRule rule = ruleRepository.findAll().get(0);
+        Claim claim = claimRepository.findById(claimId)
+                .orElseThrow(() -> new RuntimeException("Claim not found"));
+
+        List<FraudRule> rules = fraudRuleRepository.findAll();
+
+        boolean fraud = false;
+
+   
+        if (claim.getClaimAmount() > 10000) {
+            fraud = true;
+        }
 
         FraudCheckResult result = new FraudCheckResult();
-        result.setClaimId(claimId);
-
-        if (claimAmount > rule.getThresholdAmount()) {
-            result.setFraud(true);
-        } else {
-            result.setFraud(false);
-        }
+        result.setClaim(claim);
+        result.setFraudulent(fraud);
 
         return resultRepository.save(result);
     }
 
-    public FraudCheckResult getResult(Long claimId) {
-        return resultRepository.findByClaimId(claimId);
+    @Override
+    public FraudCheckResult getResultByClaim(Long claimId) {
+        return resultRepository.findAll()
+                .stream()
+                .filter(r -> r.getClaim().getId().equals(claimId))
+                .findFirst()
+                .orElse(null);
     }
 }
