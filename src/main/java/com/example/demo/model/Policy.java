@@ -26,11 +26,11 @@ public class Policy {
     @Column(nullable = false)
     private LocalDate endDate;
 
-    // 🔑 This field is REQUIRED for findByUserId()
+   
     @Column(nullable = false)
     private Long userId;
 
-    // ===== Getters & Setters =====
+    
 
     public Long getId() {
         return id;
