@@ -8,6 +8,6 @@ import com.example.demo.model.Policy;
 
 public interface PolicyRepository extends JpaRepository<Policy, Long> {
 
-    // ✅ REQUIRED for service
+    
     List<Policy> findByUserId(Long userId);
 }
