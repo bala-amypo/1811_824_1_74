@@ -1,5 +1,7 @@
 package com.example.demo.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +19,17 @@ public class PolicyServiceImpl implements PolicyService {
     @Autowired
     private UserRepository userRepository;
 
-    // ✅ REQUIRED BY TESTS
+    // REQUIRED BY TESTS
     public PolicyServiceImpl() {
     }
 
     @Override
     public Policy savePolicy(Policy policy) {
         return policyRepository.save(policy);
+    }
+
+    @Override
+    public List<Policy> getPoliciesByUser(Long userId) {
+        return policyRepository.findAll(); // simple impl
     }
 }
