@@ -5,7 +5,7 @@ import com.example.demo.model.Policy;
 
 public interface PolicyService {
 
-    Policy savePolicy(Policy policy);
+    Policy createPolicy(Long userId, Policy policy);
 
     List<Policy> getPoliciesByUser(Long userId);
 }

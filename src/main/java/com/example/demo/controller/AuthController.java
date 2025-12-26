@@ -19,8 +19,8 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String email, 
-                        @RequestParam String password) {
-        return userService.login(email, password);
+    public String login(@RequestBody User user) {
+        // ✅ FIX: pass email & password, not User object
+        return userService.login(user.getEmail(), user.getPassword());
     }
 }
