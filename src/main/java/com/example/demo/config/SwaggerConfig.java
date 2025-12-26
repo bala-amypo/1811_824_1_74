@@ -22,11 +22,11 @@ public class SwaggerConfig {
                         .version("1.0")
                         .description("API for Insurance Fraud Pattern Detection System")
                 )
-                // Server configuration (keep only if deployed URL is needed)
+                
                 .servers(List.of(
                         new Server().url("https://9015.32procr.amypo.ai/")
                 ))
-                // JWT Security
+                
                 .addSecurityItem(
                         new SecurityRequirement().addList("Bearer Authentication")
                 )
