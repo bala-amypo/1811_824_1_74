@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ServletConfig {
+public class SecurityConfig {
 
     @Bean
     public ServletRegistrationBean<HelloServlet> helloServlet() {
