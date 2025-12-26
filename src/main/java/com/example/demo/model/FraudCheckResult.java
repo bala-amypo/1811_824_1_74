@@ -1,30 +1,18 @@
 package com.example.demo.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
-@Table(name = "fraud_check_results")
 public class FraudCheckResult {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     private Long claimId;
 
-    private boolean fraudDetected;
+    private String riskLevel;
+    private String status;
 
-    @Column(length = 1000)
-    private String matchedRules;
-
-    // ✅ Default constructor
-    public FraudCheckResult() {
-    }
-
-    // ✅ Getters & Setters
-    public Long getId() {
-        return id;
-    }
+    // ----- Getters and Setters -----
 
     public Long getClaimId() {
         return claimId;
@@ -34,19 +22,19 @@ public class FraudCheckResult {
         this.claimId = claimId;
     }
 
-    public boolean isFraudDetected() {
-        return fraudDetected;
+    public String getRiskLevel() {
+        return riskLevel;
     }
 
-    public void setFraudDetected(boolean fraudDetected) {
-        this.fraudDetected = fraudDetected;
+    public void setRiskLevel(String riskLevel) {
+        this.riskLevel = riskLevel;
     }
 
-    public String getMatchedRules() {
-        return matchedRules;
+    public String getStatus() {
+        return status;
     }
 
-    public void setMatchedRules(String matchedRules) {
-        this.matchedRules = matchedRules;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
