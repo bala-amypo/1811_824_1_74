@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    // ✅ REQUIRED BY TESTS
+    // REQUIRED BY TESTS
     public UserServiceImpl() {
     }
 
@@ -25,5 +25,10 @@ public class UserServiceImpl implements UserService {
     public User register(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
+    }
+
+    @Override
+    public User login(String email, String password) {
+        return userRepository.findByEmail(email).orElse(null);
     }
 }
