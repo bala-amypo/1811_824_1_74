@@ -1,21 +1,28 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
-import com.example.demo.model.Policy;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.demo.model.Policy;
+import com.example.demo.repository.PolicyRepository;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.service.PolicyService;
 
 @Service
 public class PolicyServiceImpl implements PolicyService {
 
-    @Override
-    public Policy createPolicy(Long userId, Policy policy) {
-        return policy;
+    @Autowired
+    private PolicyRepository policyRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    // ✅ REQUIRED BY TESTS
+    public PolicyServiceImpl() {
     }
 
     @Override
-    public List<Policy> getPoliciesByUser(Long userId) {
-        return new ArrayList<>();
+    public Policy savePolicy(Policy policy) {
+        return policyRepository.save(policy);
     }
 }

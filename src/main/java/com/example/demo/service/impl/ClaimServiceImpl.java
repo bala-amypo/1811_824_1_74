@@ -1,21 +1,36 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
-import com.example.demo.model.Claim;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.demo.model.Claim;
+import com.example.demo.model.Policy;
+import com.example.demo.repository.ClaimRepository;
+import com.example.demo.repository.PolicyRepository;
+import com.example.demo.service.ClaimService;
 
 @Service
 public class ClaimServiceImpl implements ClaimService {
 
-    @Override
-    public Claim submitClaim(Claim claim) {
-        return claim;
+    @Autowired
+    private ClaimRepository claimRepository;
+
+    @Autowired
+    private PolicyRepository policyRepository;
+
+    // ✅ REQUIRED BY TESTS
+    public ClaimServiceImpl() {
     }
 
     @Override
-    public List<Claim> getClaimsByUser(Long userId) {
-        return new ArrayList<>();
+    public Claim createClaim(Long policyId, Claim claim) {
+        Policy policy = policyRepository.findById(policyId).orElse(null);
+        claim.setPolicy(policy);
+        return claimRepository.save(claim);
+    }
+
+    @Override
+    public Claim getClaim(Long id) {
+        return claimRepository.findById(id).orElse(null);
     }
 }
