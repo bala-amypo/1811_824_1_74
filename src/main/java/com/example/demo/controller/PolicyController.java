@@ -15,14 +15,16 @@ public class PolicyController {
     @Autowired
     private PolicyService policyService;
 
-  @PostMapping("/{userId}")
-public Policy createPolicy(@PathVariable Long userId,
-                           @RequestBody Policy policy) {
-    return policyService.createPolicy(userId, policy);
-}
+    @PostMapping("/{userId}")
+    public Policy createPolicy(
+            @PathVariable Long userId,
+            @RequestBody Policy policy) {
 
-    @GetMapping("/user/{userId}")
-    public List<Policy> getPoliciesByUser(@PathVariable Long userId) {
+        return policyService.createPolicy(userId, policy);
+    }
+
+    @GetMapping("/{userId}")
+    public List<Policy> getPolicies(@PathVariable Long userId) {
         return policyService.getPoliciesByUser(userId);
     }
 }
