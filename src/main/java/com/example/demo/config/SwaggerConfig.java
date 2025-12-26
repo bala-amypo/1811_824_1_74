@@ -24,7 +24,7 @@ public class SwaggerConfig {
                 )
                 // Server configuration (keep only if deployed URL is needed)
                 .servers(List.of(
-                        new Server().url("")
+                        new Server().url("https://9015.32procr.amypo.ai/")
                 ))
                 // JWT Security
                 .addSecurityItem(
