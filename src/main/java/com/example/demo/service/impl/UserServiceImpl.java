@@ -1,21 +1,29 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.User;
-import org.springframework.stereotype.Service;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Override
-    public User register(User user) {
-        return user; // dummy save for test case
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    // ✅ REQUIRED BY TESTS
+    public UserServiceImpl() {
     }
 
     @Override
-    public String login(String email, String password) {
-        if ("admin@gmail.com".equals(email) && "admin".equals(password)) {
-            return "Login Successful";
-        }
-        return "Invalid Credentials";
+    public User register(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return userRepository.save(user);
     }
 }
