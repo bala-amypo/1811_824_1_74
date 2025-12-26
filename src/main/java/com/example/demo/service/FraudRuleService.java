@@ -1,8 +1,14 @@
 package com.example.demo.service;
 
+import java.util.List;
+import org.springframework.stereotype.Service;
 import com.example.demo.model.FraudRule;
 
-public interface FraudRuleService {
+@Service
+public class FraudRuleService {
 
-    FraudRule addRule(FraudRule rule);
+    public List<FraudRule> getAllRules() {
+        // Return empty list for now
+        return List.of();
+    }
 }
