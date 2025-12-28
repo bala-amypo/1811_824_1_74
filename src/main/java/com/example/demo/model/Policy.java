@@ -25,7 +25,7 @@ public class Policy {
     
     private LocalDate endDate;
     
-    @OneToMany(mappedBy = "policy", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "policy_id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Claim> claims = new HashSet<>();
     
     public Policy() {}
